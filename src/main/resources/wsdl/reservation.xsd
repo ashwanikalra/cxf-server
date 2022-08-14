@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning"
+           xmlns:n1="http://www.abc.com/customer" targetNamespace="http://www.abc.com/customer"
+           elementFormDefault="qualified" attributeFormDefault="unqualified" vc:minVersion="1.1">
+    <xs:element name="customer">
+        <xs:annotation>
+            <xs:documentation>Customer personal information</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+
+            <xs:attribute name="id" type="xs:long" use="required"/>
+            <xs:attribute name="firstname" type="xs:string" use="required"/>
+            <xs:attribute name="lastname" type="xs:string" use="required"/>
+
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="GetCustomerResponse">
+        <xs:complexType>
+            <xs:sequence minOccurs="0">
+                <xs:element ref="n1:customer"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="GetCustomerRequest">
+        <xs:annotation>
+            <xs:documentation>Query an employee by name</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:attribute name="firstname" type="xs:string" use="optional"/>
+            <xs:attribute name="lastname" type="xs:string" use="optional"/>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>
